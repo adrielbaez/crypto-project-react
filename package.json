@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "dompurify": "^2.3.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0",
@@ -16,6 +17,7 @@
     "react-sparklines": "^1.7.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^2.3.3",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-sparklines": "^1.7.2",

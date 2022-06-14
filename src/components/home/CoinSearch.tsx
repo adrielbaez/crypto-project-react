@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CoinsResponse } from "../../interface/coinsInterface";
+import { Loader } from "../loader/Loader";
 import { CoinItem } from "./CoinItem";
 
 interface Props {
@@ -8,6 +9,14 @@ interface Props {
 }
 export const CoinSearch = ({ coins, isLoading }: Props) => {
   const [searchText, setSearchText] = useState("");
+
+  if (isLoading) {
+    return (
+      <div className="rounded-div h-[40vh] my-12 py-8 flex items-center justify-center">
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className="rounded-div my-4">
       <div className="flex flex-col justify-between md:flex-row pt-4 pb-6 text-center md:text-right">
@@ -37,24 +46,18 @@ export const CoinSearch = ({ coins, isLoading }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {isLoading ? (
-            <tr>
-              <td>Loading...</td>
-            </tr>
-          ) : (
-            coins
-              .filter((value) => {
-                if (searchText === "") {
-                  return value;
-                }
-                if (
-                  value.name.toLowerCase().includes(searchText.toLowerCase())
-                ) {
-                  return value;
-                }
-              })
-              .map((coin, index) => <CoinItem key={coin.id} coin={coin} />)
-          )}
+          {coins
+            .filter((value) => {
+              if (searchText === "") {
+                return value;
+              }
+              if (value.name.toLowerCase().includes(searchText.toLowerCase())) {
+                return value;
+              }
+            })
+            .map((coin, index) => (
+              <CoinItem key={coin.id} coin={coin} />
+            ))}
         </tbody>
       </table>
     </div>

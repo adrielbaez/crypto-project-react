@@ -2,6 +2,7 @@ import React from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { AiOutlineStar } from "react-icons/ai";
 import { CoinsResponse } from "../../interface/coinsInterface";
+import { Link } from "react-router-dom";
 
 interface Props {
   coin: CoinsResponse;
@@ -14,14 +15,16 @@ export const CoinItem = ({ coin }: Props) => {
       </td>
       <td>{coin.market_cap_rank}</td>
       <td>
-        <div className="flex items-center">
-          <img
-            src={coin.image}
-            alt={coin.name}
-            className="w-6 mr-2 rounded-full"
-          />
-          <p className="hidden sm:table-cell">{coin.name}</p>
-        </div>
+        <Link to={`/coin/${coin.id}`}>
+          <div className="flex items-center">
+            <img
+              src={coin.image}
+              alt={coin.name}
+              className="w-6 mr-2 rounded-full"
+            />
+            <p className="hidden sm:table-cell">{coin.name}</p>
+          </div>
+        </Link>
       </td>
       <td>{coin.symbol.toUpperCase()}</td>
       <td>${coin.current_price.toLocaleString()}</td>
