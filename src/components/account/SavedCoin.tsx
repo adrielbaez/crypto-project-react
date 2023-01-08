@@ -27,7 +27,7 @@ export const SavedCoin = () => {
         </tr>
       </thead>
       <tbody>
-        {coins.map((coin, index) => (
+        {/* {coins.map((coin, index) => (
           <tr key={coin?.id} className="h-[60px] overflow-hidden">
             <td>{coin?.rank}</td>
             <td>
@@ -51,7 +51,7 @@ export const SavedCoin = () => {
               <AiOutlineClose className="cursor-pointer" />
             </td>
           </tr>
-        ))}
+        ))} */}
       </tbody>
     </table>
   );
