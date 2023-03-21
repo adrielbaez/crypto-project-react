@@ -33,7 +33,7 @@ export const Trending = () => {
                     alt="bitcoin"
                     className="w-4 mr-2"
                   />
-                  <p>{coin.item.price_btc.toFixed(7)}</p>
+                  <p>{coin.item.price_btc?.toFixed(7)}</p>
                 </div>
               </div>
             </div>
